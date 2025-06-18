@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-pulse-fast {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce 2s infinite;
+}
+
+/* Material color utilities */
+.bg-blue-50 { background-color: hsl(214, 100%, 97%); }
+.bg-blue-100 { background-color: hsl(214, 95%, 93%); }
+.bg-blue-500 { background-color: hsl(217, 91%, 60%); }
+.bg-blue-600 { background-color: hsl(221, 83%, 53%); }
+.border-blue-200 { border-color: hsl(213, 97%, 87%); }
+.text-blue-600 { color: hsl(221, 83%, 53%); }
+.text-blue-800 { color: hsl(224, 76%, 48%); }
+
+.bg-red-50 { background-color: hsl(0, 86%, 97%); }
+.bg-red-100 { background-color: hsl(0, 93%, 94%); }
+.bg-red-500 { background-color: hsl(0, 84%, 60%); }
+.bg-red-600 { background-color: hsl(0, 72%, 51%); }
+.border-red-200 { border-color: hsl(0, 96%, 89%); }
+.text-red-600 { color: hsl(0, 72%, 51%); }
+.text-red-800 { color: hsl(0, 70%, 35%); }
+
+.bg-gray-50 { background-color: hsl(210, 20%, 98%); }
+.bg-gray-100 { background-color: hsl(220, 14%, 96%); }
+.bg-gray-500 { background-color: hsl(220, 9%, 46%); }
+.bg-gray-600 { background-color: hsl(220, 13%, 35%); }
+.border-gray-200 { border-color: hsl(220, 13%, 91%); }
+.text-gray-600 { color: hsl(220, 13%, 35%); }
+.text-gray-800 { color: hsl(220, 9%, 28%); }
+
+.bg-orange-50 { background-color: hsl(33, 100%, 96%); }
+.bg-orange-100 { background-color: hsl(34, 100%, 92%); }
+.bg-orange-500 { background-color: hsl(25, 95%, 53%); }
+.bg-orange-600 { background-color: hsl(21, 90%, 48%); }
+.border-orange-200 { border-color: hsl(32, 98%, 83%); }
+.text-orange-600 { color: hsl(21, 90%, 48%); }
+.text-orange-800 { color: hsl(15, 79%, 34%); }
+
+.bg-yellow-50 { background-color: hsl(55, 92%, 95%); }
+.bg-yellow-100 { background-color: hsl(54, 96%, 88%); }
+.bg-yellow-500 { background-color: hsl(48, 96%, 53%); }
+.bg-yellow-600 { background-color: hsl(45, 93%, 47%); }
+.border-yellow-200 { border-color: hsl(52, 98%, 77%); }
+.text-yellow-600 { color: hsl(45, 93%, 47%); }
+.text-yellow-800 { color: hsl(40, 96%, 40%); }
+
+.bg-purple-50 { background-color: hsl(270, 100%, 98%); }
+.bg-purple-100 { background-color: hsl(269, 100%, 95%); }
+.bg-purple-500 { background-color: hsl(271, 81%, 56%); }
+.bg-purple-600 { background-color: hsl(271, 70%, 47%); }
+.border-purple-200 { border-color: hsl(268, 100%, 86%); }
+.text-purple-600 { color: hsl(271, 70%, 47%); }
+.text-purple-800 { color: hsl(273, 67%, 35%); }
+
+.bg-green-50 { background-color: hsl(138, 76%, 97%); }
+.bg-green-100 { background-color: hsl(141, 84%, 93%); }
+.bg-green-500 { background-color: hsl(142, 71%, 45%); }
+.bg-green-600 { background-color: hsl(142, 76%, 36%); }
+.border-green-200 { border-color: hsl(141, 78%, 85%); }
+.text-green-600 { color: hsl(142, 76%, 36%); }
+.text-green-800 { color: hsl(143, 64%, 24%); }
+
+.hover\:bg-blue-100:hover { background-color: hsl(214, 95%, 93%); }
+.hover\:bg-blue-600:hover { background-color: hsl(221, 83%, 53%); }
+.hover\:bg-red-100:hover { background-color: hsl(0, 93%, 94%); }
+.hover\:bg-red-600:hover { background-color: hsl(0, 72%, 51%); }
+.hover\:bg-gray-100:hover { background-color: hsl(220, 14%, 96%); }
+.hover\:bg-gray-600:hover { background-color: hsl(220, 13%, 35%); }
+.hover\:bg-orange-100:hover { background-color: hsl(34, 100%, 92%); }
+.hover\:bg-orange-600:hover { background-color: hsl(21, 90%, 48%); }
+.hover\:bg-yellow-100:hover { background-color: hsl(54, 96%, 88%); }
+.hover\:bg-yellow-600:hover { background-color: hsl(45, 93%, 47%); }
+.hover\:bg-purple-100:hover { background-color: hsl(269, 100%, 95%); }
+.hover\:bg-purple-600:hover { background-color: hsl(271, 70%, 47%); }
+.hover\:bg-green-100:hover { background-color: hsl(141, 84%, 93%); }
+.hover\:bg-green-600:hover { background-color: hsl(142, 76%, 36%); }
